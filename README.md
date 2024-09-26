@@ -18,6 +18,6 @@ This project implements the classic Othello game using Python and Pygame, with a
 The AI agent evaluates the game board and selects the best possible move using the Minimax algorithm with alpha-beta pruning, allowing for efficient and competitive play.
 
 **How it works**:
-1.Depth-Limited Search:  The AI explores potential moves up to a predefined depth (usually 3 moves ahead).
-2.Pruning:  Alpha-beta pruning reduces the number of nodes the algorithm needs to evaluate, making it faster without affecting the decision quality.
-3.Board Evaluation:  At the end of each branch, the AI evaluates the board to determine how favorable it is. It prioritizes capturing corners and preventing the opponent from gaining an advantage
+1. Depth-Limited Search:  The AI explores potential moves up to a predefined depth (usually 3 moves ahead).
+2. Pruning:  Alpha-beta pruning reduces the number of nodes the algorithm needs to evaluate, making it faster without affecting the decision quality.
+3. Board Evaluation:  At the end of each branch, the AI evaluates the board to determine how favorable it is. It prioritizes capturing corners and preventing the opponent from gaining an advantage
