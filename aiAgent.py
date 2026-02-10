@@ -64,6 +64,10 @@ class AIAgent:
             return min_eval
 
     def get_best_move(self, board):
+        """
+         Selects the optimal move by evaluating all legal actions
+         using depth-limited minimax search.
+         """
         best_move = None
         best_score = -float('inf') if self.player == WHITE_PIECE else float('inf')
         valid_moves = self.get_valid_moves(board, self.player)
@@ -82,6 +86,10 @@ class AIAgent:
         return best_move
 
     def get_valid_moves(self, board, player):
+        """
+        Generates all legal moves for the given player by checking
+        board positions according to Othello rules.
+        """
         valid_moves = []
         for row in range(BOARD_SIZE):
             for col in range(BOARD_SIZE):
