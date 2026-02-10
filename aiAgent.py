@@ -24,8 +24,18 @@ class AIAgent:
         self.player = player
 
     def minimax(self, board, depth, alpha, beta, maximizing_player):
+        """
+           Minimax search with alpha–beta pruning.
+           Explores the game tree up to a fixed depth and evaluates board states
+           using a heuristic based on piece difference.
+
+           alpha: best score achievable by the maximizer so far
+           beta: best score achievable by the minimizer so far
+           """
         valid_moves = self.get_valid_moves(board, WHITE_PIECE if maximizing_player else BLACK_PIECE)
+        # Terminal condition: depth limit reached or no legal moves available
         if depth == 0 or not valid_moves:
+            # Heuristic evaluation: material advantage (white - black)
             return np.sum(board == WHITE_PIECE) - np.sum(board == BLACK_PIECE)
         if maximizing_player:
             max_eval = -float('inf')
@@ -35,6 +45,9 @@ class AIAgent:
                 eval = self.minimax(new_board, depth - 1, alpha, beta, False)
                 max_eval = max(max_eval, eval)
                 alpha = max(alpha, eval)
+                # Alpha–beta pruning: stop exploring this branch if it cannot improve the result
+                if beta <= alpha:
+                    break
                 if beta <= alpha:
                     break
             return max_eval
